@@ -1,0 +1,48 @@
+[33mcommit 1a35536fc4f157e0492dab04371cdc171d5e6f5e[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Merge: ac10946 c80729f
+Author: sreejith-a-nair <anairsreejith1998@gmail.com>
+Date:   Sat Feb 3 11:33:32 2024 +0530
+
+    Resolved merge conflicts
+
+[33mcommit ac109466efa8b096985ef25d347b7b8f26913327[m
+Author: sreejith-a-nair <anairsreejith1998@gmail.com>
+Date:   Sat Feb 3 11:26:18 2024 +0530
+
+    Committing changes with consistent line endings
+
+[33mcommit c80729fd376a6f3205f7ec27885c5e6da6afdf20[m
+Author: sreejith-a-nair <anairsreejith1998@gmail.com>
+Date:   Sat Feb 3 11:19:56 2024 +0530
+
+    Initial commit
+
+[33mcommit 2207f144cc0672982a50e0dd0c98ddaeb456f6a4[m
+Author: Suhan Muhammed S <68009966+suhanmhd@users.noreply.github.com>
+Date:   Thu Aug 31 23:19:00 2023 +0530
+
+    Update application.yml
+
+[33mcommit beadf7428b56337049e6104bfd9201ffac96c799[m
+Author: Suhan Muhammed S <68009966+suhanmhd@users.noreply.github.com>
+Date:   Thu Aug 31 07:52:06 2023 +0530
+
+    Update application.yml
+
+[33mcommit 8159988a76a0ebccfbf7ecdd3768827841782d8a[m
+Author: Suhan Muhammed S <68009966+suhanmhd@users.noreply.github.com>
+Date:   Tue Aug 29 10:26:06 2023 +0530
+
+    Update application.yml
+
+[33mcommit 84391e89e0f8e3126c40791ec47652deead7034e[m
+Author: Suhan Muhammed S <68009966+suhanmhd@users.noreply.github.com>
+Date:   Mon Aug 28 07:14:11 2023 +0530
+
+    Create maven.yml
+
+[33mcommit 9193b376b5560bb1f20e663d6e8180531cea82a9[m
+Author: suhanmhd <suhanmuhammed4@gmail.com>
+Date:   Mon Aug 28 07:08:30 2023 +0530
+
+    initial commit
