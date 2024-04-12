@@ -14,10 +14,14 @@ import java.util.function.Function;
 @Service
 public class JwtService {
 
-
     public static  final String SECRET="fgBDT07Pnjm3QmX/2ndPpiqNc+fZqBAFeXIz3Tbq0BPrONjSLp3nZPjkiyLyAsMp";
+//    public static final long EXPIRATION_TIME_MS = 24 * 60 * 60 * 1000;
 
      public String extractUsername(String token) {
+         if (token == null || token.isEmpty()) {
+             return "Token is null or empty";
+         }
+
         return extractClaim(token, Claims::getSubject);
     }
 
@@ -40,7 +44,10 @@ public class JwtService {
 
 
     private Claims extractAllClaims(String token) {
-        return Jwts.parserBuilder().setSigningKey(getSignKey()).build().parseClaimsJws(token).getBody();
+        return Jwts.parserBuilder()
+                   .setSigningKey(getSignKey())
+                   .build().parseClaimsJws(token)
+                   .getBody();
     }
 
 
@@ -60,16 +67,13 @@ public class JwtService {
                 claim.put("role",role);
                 return  createToken(claim,userName);
             }
-
-
-
-
     private String createToken(Map<String, Object> claims, String subject) {
+
         return Jwts.builder()
                 .setClaims(claims)
                 .setSubject(subject)
-                .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + 2 * 60 * 60 * 1000))
+                .setIssuedAt(new Date((System.currentTimeMillis())))
+                .setExpiration(new Date(System.currentTimeMillis() + 19 * 60 * 60 * 1000))
                 .signWith(getSignKey(), SignatureAlgorithm.HS256).compact();
     }
 

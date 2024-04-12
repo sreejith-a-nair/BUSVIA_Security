@@ -30,32 +30,49 @@ public class AuthService {
         user.setUuid(userInfo.getUuid());
         user.setRole(userInfo.getRole());
         user.setFirstName(userInfo.getFirstName());
+        user.setBlock(true);
         userInfoRepo.save(user);
         return "Registration success";
+    }
+    public String updateUser(UserRequest userInfo){
+        /* password encrypted in db*/
+//        UserInfo user = new UserInfo();
+        UserInfo user= userInfoRepo.findById( userInfo.getUuid())
+                        .orElseThrow(()->new RuntimeException( "User not found in auth service "));
+        System.out.println("User service uuid    : "+userInfo.getUuid());
+        System.out.println("Auth service uuid   : "+user.getUuid());
+        user.setEmail(userInfo.getEmail());
+        user.setFirstName(userInfo.getFirstName());
+        userInfoRepo.save(user);
+        return "update in auth success";
     }
 
     public List<UserInfo> findAll() {
        return userInfoRepo.findAll();
     }
 
-//    UserDetails userDetail = userDetails.loadUserByUsername(userName);
-//    public String generateToken(String username ){
-//        return  jwtService.generateToken(username  );
-//    }
-//    public void validateToken(String token,UserDetails userDetails){
-//          jwtService.validateToken(token,userDetails.getUsername());
-//    }
 
-//aagi user
-//    $2a$10$jzjguCK7h4yIqAhV7eTyl.gEq5/In5gS5R4XtxwGQYZCjVG3QWasi
+    public void blockUser(UserRequest userRequest) {
+        UserInfo user =  userInfoRepo.findById(userRequest.getUuid())
+                .orElseThrow(()->new RuntimeException( "User not found in auth service "));
 
+        user.setBlock(false);
+        UserInfo userBlockInfo=userInfoRepo.save(user);
+        System.out.println("userBlockInfo : "+userBlockInfo);
 
-//aagi auth
-//    $2a$10$FHGsA5ZRMDK0j/UUZoBzAeqgdS8RBL0iLGyeZaPDBEzCEH04jU4ky
+    }
 
-//    auth
-//    $2a$10$ujEfagtKrAVEuvrFcMiB9OFr88iGe9jpwr/heq5fGfuIShJguG9eG
+    public void unblockUser(UserRequest userRequest) {
+        UserInfo user =  userInfoRepo.findById(userRequest.getUuid())
+                .orElseThrow(()->new RuntimeException( "User not found in auth service "));
 
-//    $2a$10$ujEfagtKrAVEuvrFcMiB9OFr88iGe9jpwr/heq5fGfuIShJguG9eG
+        user.setBlock(true);
+        UserInfo userBlockInfo=userInfoRepo.save(user);
+        System.out.println("user un-BlockInfo : "+userBlockInfo);
 
+    }
+
+    public UserInfo getUserByEmail(String email) {
+        return userInfoRepo.findByEmail(email).orElseThrow(()->new RuntimeException( "User not found in by email in auth service "));
+    }
 }

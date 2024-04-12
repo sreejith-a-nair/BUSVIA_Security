@@ -17,12 +17,10 @@ import java.util.UUID;
 public class UserInfo {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "uuid2")
-    @GenericGenerator(name = "uuid2", strategy = "uuid2")
     private UUID uuid;
     private  String firstName;
     private  String email;
     private  String password;
     private  String role;
-
+    private boolean isBlock;
 }

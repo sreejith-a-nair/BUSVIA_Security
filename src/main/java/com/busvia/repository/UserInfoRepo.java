@@ -11,9 +11,7 @@ import java.util.UUID;
 
 @Repository
 public interface UserInfoRepo extends JpaRepository<UserInfo , UUID> {
-//    Optional<UserInfo> findByFirstName(String username);
-//@Query("SELECT u FROM UserInfo u WHERE u.first_name = :firstName")
-//Optional<UserInfo> findByFirst_nameIgnoreCase (@Param("firstName") String firstName);
+
 Optional<UserInfo> findByFirstName (String firstName);
 
     Optional<UserInfo> findByEmail(String email);
